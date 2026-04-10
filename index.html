@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Prime Number Checker</title>
+    <style>
+        .container{
+            text-align: center;
+            display:flex;
+            justify-content: center;
+            flex-direction: column;
+            gap:10px;
+            height: 100vh;
+            margin:10px;
+            padding:10px;
+        }
+        h1{
+           color:limegreen;
+           font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+           text-shadow: 1px 2px rgb(92, 85, 85) ;
+        }
+        button{
+            padding:6px;
+            background-color: lightgreen;
+            border-width: 0px;
+            border-radius: 10%;
+           box-shadow: 2px 2px grey;
+        }
+        input{
+            padding:6px;
+            background-color: lavenderblush;
+            border-width: 0px;
+             box-shadow: 2px 2px grey;
+             
+        }
+        #result{
+            font-size: 20px;
+            text-shadow:1px 1px grey;
+        }
+
+
+
+
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Prime Number Checker</h1>
+        <div>
+            <input tupe="number" id="user" placeholder="Enter a Number" oninput="clearresult()">
+            <button  onclick="update()" id="checker">Check</button>
+        </div>
+        <div>
+            <p id="result"></p>
+        </div>
+    </div>
+   <script>
+    function update(){
+    var count=0;
+    var num=parseInt(document.getElementById("user").value);
+    var res=document.getElementById("result");
+    
+    if(num<=1){
+        res.textContent="Fahh!Please enter a number greater then 1 🗿💀";
+        res.style.color="red";
+        return;
+    }
+    for(var i=2;i<num;i++){
+        if(num%i===0){
+            count++;
+            break;
+        }
+    }
+    if(count===0){
+        res.textContent=num+" is a prime number 🎊🥳";
+        res.style.color="green";
+    }
+    else{
+        res.textContent=num+" is a non prime number ❌ ";
+        res.style.color="orchid"
+    }
+    }
+    function clearresult(){
+    var input = document.getElementById("user").value;
+    var res = document.getElementById("result");
+    if(input === ""){
+        res.textContent = "";
+    }
+}
+
+   </script> 
+</body>
+</html>
